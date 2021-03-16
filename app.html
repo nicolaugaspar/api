@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<main>
+		
+
+	</main>
+
+	<script>
+       async function mostrar(){
+       	try{
+
+       		 const res = await fetch('http://localhost:3838/')
+		const data= await res.json()
+     show(data)
+       	} catch(error){
+
+       		console.log(error)
+       	}
+    
+       }
+       mostrar()
+		
+function show(users){
+
+let output=''
+
+for(let user of users){
+
+	output+=`<li>${ user.albumId}</li>
+	<li>${ user.id}</li>
+	<li>${ user.thumbnailUrl}</li>
+	<li>${ user.title}</li>
+	<li>${ user.url}</li>`
+}
+
+document.querySelector('main').innerHTML=output
+}
+
+	</script>
+</body>
+</html>
